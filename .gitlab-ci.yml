@@ -6,7 +6,7 @@ stages:
 deploy_production:
   stage: deploy
   script:
-    - ''
+    - 'sudo git pull'
   environment: production
   only:
     - master
