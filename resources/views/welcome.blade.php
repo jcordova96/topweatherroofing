@@ -78,7 +78,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravell
+                    Laravelll
                 </div>
 
                 <div class="links">
