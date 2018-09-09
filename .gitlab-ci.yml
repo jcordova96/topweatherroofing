@@ -9,5 +9,6 @@ deploy_production:
     - 'sshpass -V'
     - 'export SSHPASS=$USER_PASS'
     - 'sshpass -e scp -o stricthostkeychecking=no -r . ec2-user@topweatherroofing.tk:/var/www/html  environment: production'
+    - ''
   only:
     - master
