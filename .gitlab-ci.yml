@@ -1,16 +1,15 @@
-image: hitalos/laravel:latest
+image: php:latest
 
 stages:
   - deploy
 
-before_script:
-  - export PATH=$PATH:/usr/bin/sshpass
-
 deploy_production:
   stage: deploy
   script:
-    - 'sshpass -V'
-    - 'export SSHPASS=$USER_PASS'
-    - 'sshpass -e scp -o stricthostkeychecking=no -r . ec2-user@topweatherroofing.tk:/var/www/html  environment: production'
+    - ssh ec2-user@topweatherroofing.tk "
+      cd /var/www/topweatherroofing &&
+      git checkout . &&
+      git checkout master &&
+      git pull"
   only:
     - master
