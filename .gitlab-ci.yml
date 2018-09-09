@@ -3,11 +3,17 @@ image: tetraweb/php:7.0
 stages:
   - deploy
 
+before_script:
+  - mkdir -p ~/.ssh
+  - echo -e "$DEPLOY_KEY" > ~/.ssh/id_rsa
+  - chmod 600 ~/.ssh/id_rsa
+  - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+
 deploy_production:
   stage: deploy
   script:
     - ssh ec2-user@topweatherroofing.tk "
-      cd /var/www/topweatherroofing &&
+      cd /var/www/html/topweatherroofing &&
       git checkout . &&
       git checkout master &&
       git pull"
