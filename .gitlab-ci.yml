@@ -1,16 +1,6 @@
 image: hitalos/laravel:latest
 
-services:
-  - mysql:5.7
-
-variables:
-  MYSQL_DATABASE: topweatherroofing
-  MYSQL_ROOT_PASSWORD: root
-  DB_HOST: mysql
-  DB_USERNAME: root
-
 stages:
-  - test
   - deploy
 
 unit_test:
