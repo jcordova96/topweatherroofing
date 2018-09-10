@@ -1,16 +1,16 @@
 image: tetraweb/php:7.0
 
-services:
-  - mysql
+#services:
+#  - mysql
 
-variables:
-  MYSQL_DATABASE: topweatherroofing
-  MYSQL_ROOT_PASSWORD: root
-  DB_HOST: mysql
-  DB_USERNAME: user
+#variables:
+#  MYSQL_DATABASE: topweatherroofing
+#  MYSQL_ROOT_PASSWORD: root
+#  DB_HOST: mysql
+#  DB_USERNAME: user
 
 stages:
-  - test
+#  - test
   - deploy
 
 before_script:
@@ -19,14 +19,14 @@ before_script:
   - chmod 600 ~/.ssh/id_rsa
   - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
 
-unit_test:
-  stage: test
-  script:
-    - cp .env.example .env
-    - composer install
-    - php artisan key:generate
-    - php artisan migrate
-    - vendor/bin/phpunit
+#unit_test:
+#  stage: test
+#  script:
+#    - cp .env.example .env
+#    - composer install
+#    - php artisan key:generate
+#    - php artisan migrate
+#    - vendor/bin/phpunit
 
 deploy_production:
   stage: deploy
